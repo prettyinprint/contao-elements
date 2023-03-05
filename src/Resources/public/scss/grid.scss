@@ -1,16 +1,23 @@
-$gaps: 0, 5, 10, 20;
+@use "sass:math";
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  @each $gap in $gaps {
-    &.cg-#{$gap} {
-      column-gap: #{$gap}px;
-    }
-    &.rg-#{$gap} {
-      row-gap: #{$gap}px;
-    }
+$maxColumns: 12;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: red;
+    border: 1px solid blue;
   }
-  &__item {
+  @for $i from 1 through 12 {
+    > .col-#{$i} {
+      flex: 0 0 math.div(100%, math.div(12, $i));
+      max-width: math.div(100%, math.div(12, $i));
+    }
+    > .offset-#{$i} {
+      margin-left: math.div(100%, math.div(12, $i));
+    }
   }
 }
