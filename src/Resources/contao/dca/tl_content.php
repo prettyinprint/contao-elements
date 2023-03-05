@@ -34,13 +34,13 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_properties_width'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['content_box_properties_width'],
     'inputType' => 'select',
     'options' => [
-        '100' => '100%',
-        '75' => '75rem',
+        '' => '100%',
+        'centered' => '75rem',
     ],
     'sql' => [
         'type' => 'string',
-        'length' => 3,
-        'default' => '100',
+        'length' => 8,
+        'default' => '',
     ],
     'eval' => ['tl_class' => 'w50'],
 ];
@@ -48,16 +48,16 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_properties_pt'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['content_box_properties_pt'],
     'inputType' => 'select',
     'options' => [
-        '0' => '0px',
-        '16' => '16px',
-        '32' => '32px',
-        '48' => '48px',
-        '64' => '64px'
+        '' => '0px',
+        'pt-16' => '16px',
+        'pt-32' => '32px',
+        'pt-48' => '48px',
+        'pt-64' => '64px'
     ],
     'sql' => [
         'type' => 'string',
-        'length' => 2,
-        'default' => '0',
+        'length' => 5,
+        'default' => '',
     ],
     'eval' => ['tl_class' => 'clr w50'],
 ];
@@ -65,16 +65,16 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_properties_pb'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['content_box_properties_pb'],
     'inputType' => 'select',
     'options' => [
-        '0' => '0px',
-        '16' => '16px',
-        '32' => '32px',
-        '48' => '48px',
-        '64' => '64px'
+        '' => '0px',
+        'pb-16' => '16px',
+        'pb-32' => '32px',
+        'pb-48' => '48px',
+        'pb-64' => '64px'
     ],
     'sql' => [
         'type' => 'string',
-        'length' => 2,
-        'default' => '0',
+        'length' => 5,
+        'default' => '',
     ],
     'eval' => ['tl_class' => 'w50'],
 ];
@@ -82,16 +82,16 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_properties_mt'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['content_box_properties_mt'],
     'inputType' => 'select',
     'options' => [
-        '0' => '0px',
-        '16' => '16px',
-        '32' => '32px',
-        '48' => '48px',
-        '64' => '64px'
+        '' => '0px',
+        'mt-16' => '16px',
+        'mt-32' => '32px',
+        'mt-48' => '48px',
+        'mt-64' => '64px'
     ],
     'sql' => [
         'type' => 'string',
-        'length' => 2,
-        'default' => '0',
+        'length' => 5,
+        'default' => '',
     ],
     'eval' => ['tl_class' => 'w50'],
 ];
@@ -99,16 +99,16 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_properties_mb'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['content_box_properties_mb'],
     'inputType' => 'select',
     'options' => [
-        '0' => '0px',
-        '16' => '16px',
-        '32' => '32px',
-        '48' => '48px',
-        '64' => '64px'
+        '' => '0px',
+        'mb-16' => '16px',
+        'mb-32' => '32px',
+        'mb-48' => '48px',
+        'mb-64' => '64px'
     ],
     'sql' => [
         'type' => 'string',
-        'length' => 2,
-        'default' => '0',
+        'length' => 5,
+        'default' => '',
     ],
     'eval' => ['tl_class' => 'w50'],
 ];
@@ -119,7 +119,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_background_color'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['content_box_background_color'],
     'inputType' => 'select',
     'options' => [
-        'ffffff' => 'weiß',
+        '' => '-',
         'eeee' => 'hellgrau',
         '252525' => 'grau',
         '0d5289' => 'blau',
@@ -127,7 +127,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_background_color'] = [
     'sql' => [
         'type' => 'string',
         'length' => 6,
-        'default' => 'ffffff',
+        'default' => '',
     ],
     'eval' => ['tl_class' => 'w50'],
 ];
@@ -156,14 +156,14 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_background_overlay'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_content']['content_box_background_overlay'],
     'inputType' => 'select',
     'options' => [
-        '' => '-',
-        '40' => '40%',
-        '60' => '60%',
-        '80' => '80%'
+        '' => '0%',
+        'overlay-40' => '40%',
+        'overlay-60' => '60%',
+        'overlay-80' => '80%'
     ],
     'sql' => [
         'type' => 'string',
-        'length' => 2,
+        'length' => 10,
         'default' => '',
     ],
     'eval' => ['tl_class' => 'w50'],
@@ -187,13 +187,13 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['content_box_content_text_align'] = [
     'inputType' => 'select',
     'options' => [
         '' => 'Links',
-        'alignCenter' => 'Zentriert',
-        'alignRight' => 'Rechts',
+        'center' => 'Zentriert',
+        'right' => 'Rechts',
     ],
     'sql' => [
         'type' => 'string',
-        'length' => 11,
-        'default' => 'left',
+        'length' => 6,
+        'default' => '',
     ],
     'eval' => ['tl_class' => 'w50'],
 ];

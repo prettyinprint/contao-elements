@@ -1,0 +1,1 @@
+.grid{display:grid;grid-template-columns:repeat(6,1fr)}.grid.cg-0{-moz-column-gap:0;column-gap:0}.grid.rg-0{row-gap:0}.grid.cg-5{-moz-column-gap:5px;column-gap:5px}.grid.rg-5{row-gap:5px}.grid.cg-10{-moz-column-gap:10px;column-gap:10px}.grid.rg-10{row-gap:10px}.grid.cg-20{-moz-column-gap:20px;column-gap:20px}.grid.rg-20{row-gap:20px}

@@ -1,9 +1,29 @@
-<section {{cssID}} style="--bc:#{{backgroundColorCustom ?: backgroundColor}};" class="content-box mt-{{marginTop}} mb-{{marginBottom}} pt-{{paddingTop}} pb-{{paddingBottom}}{{contentColorInverted ? ' contrast'}}{{class ? ' ' ~ class}}">
+{% set sectionAttributes = attrs(text_attributes|default)
+    .setIfExists("id", cssID)
+    .addClass(["content-box", class, marginTop, marginBottom, paddingTop, paddingBottom])
+    .set('style', '--bc:#' ~ backgroundColor, backgroundColor)
+%}
+{% set innerAttributes = attrs(text_attributes|default)
+    .addClass(["content-box__inner", width])
+    .addClass("contrast", colorInverted)
+    .addClass(textAlign)
+%}
+{% set backgroundImageAttributes = attrs(text_attributes|default)
+    .addClass("content-box__background-image")
+    .addClass('parallax', backgroundParallax)
+    .setIfExists('title', backgroundImageTitle)
+    .set('style', 'background-image:url(' ~ backgroundImagePath ~ ')', backgroundImagePath)
+%}
+{% set backgroundOverlayAttributes = attrs(text_attributes|default)
+    .addClass(["content-box__background-overlay", backgroundOverlay])
+%}
+<section{{sectionAttributes}}>
   {% if hasBackgroundImage %}
-    <div title="{{backgroundImage['title']}}" class="content-box__background-image{{backgroundParallax ? ' parallax'}}" style="background-image:url({{backgroundImage['path']}});">
+    <div{{backgroundImageAttributes}}>
     {% if backgroundOverlay %}
-      <div class="content-box__background-overlay{{backgroundOverlay ? ' _' ~ backgroundOverlay}}"></div>
+      <div{{backgroundOverlayAttributes}}></div>
     {% endif %}
     </div>
   {% endif %}
-  <div class="content-box__inner{{width == '75' ? ' center'}}">
+  <div{{innerAttributes}}>
+ 

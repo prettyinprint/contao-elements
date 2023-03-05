@@ -1,12 +1,9 @@
-$gaps: 0, 16, 32, 48, 64;
+$gaps: 16, 32, 48, 64;
 $overlays: 40, 60, 80;
 
 .content-box {
   background-color: var(--bc);
   position: relative;
-  &.contrast {
-    color: #ffffff;
-  }
   @each $gap in $gaps {
     &.pt-#{$gap} {
       padding-top: #{$gap}px;
@@ -40,7 +37,7 @@ $overlays: 40, 60, 80;
       @extend .content-box__background;
       background-color: #000000;
       @each $overlay in $overlays {
-        &._#{$overlay} {
+        &.overlay-#{$overlay} {
           opacity: calc($overlay / 100);
         }
       }
@@ -48,7 +45,10 @@ $overlays: 40, 60, 80;
   }
   &__inner {
     position: relative;
-    &.center {
+    &.contrast {
+      color: #ffffff;
+    }
+    &.centered {
       width: 75rem;
       margin: 0 auto;
       @media (max-width: 80rem) {
@@ -61,10 +61,10 @@ $overlays: 40, 60, 80;
         padding-left: 20px;
       }
     }
-    &.alignCenter {
+    &.center {
       text-align: center;
     }
-    &.alignRight {
+    &.right {
       text-align: right;
     }
   }
