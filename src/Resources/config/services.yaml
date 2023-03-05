@@ -4,3 +4,5 @@ services:
 
   PiP\ContaoElements\Controller\ContentElement\ContentBoxStart: ~
   PiP\ContaoElements\Controller\ContentElement\ContentBoxStop: ~
+  PiP\ContaoElements\Controller\ContentElement\RowStart: ~
+  PiP\ContaoElements\Controller\ContentElement\RowStop: ~
