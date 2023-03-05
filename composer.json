@@ -1,6 +1,7 @@
 {
   "name": "prettyinprint/contao-elements",
   "type": "contao-bundle",
+  "license": "MIT",
   "authors": [
     {
       "name": "Pretty in Print",
