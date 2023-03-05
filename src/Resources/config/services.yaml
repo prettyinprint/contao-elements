@@ -1,0 +1,6 @@
+services:
+  _defaults:
+    autoconfigure: true
+
+  PiP\ContaoElements\Controller\ContentElement\ContentBoxStart: ~
+  PiP\ContaoElements\Controller\ContentElement\ContentBoxStop: ~

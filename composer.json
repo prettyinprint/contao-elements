@@ -1,0 +1,23 @@
+{
+  "name": "prettyinprint/contao-elements",
+  "type": "contao-bundle",
+  "authors": [
+    {
+      "name": "Pretty in Print",
+      "email": "info@pip.de",
+      "homepage": "https://pip.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "contao/core-bundle": "^4.13 || ^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "PiP\\ContaoElements\\": "src/"
+    }
+  },
+  "extra": {
+    "contao-manager-plugin": "PiP\\ContaoElements\\ContaoManagerPlugin"
+  }
+}

@@ -1,0 +1,71 @@
+$gaps: 0, 16, 32, 48, 64;
+$overlays: 40, 60, 80;
+
+.content-box {
+  background-color: var(--bc);
+  position: relative;
+  &.contrast {
+    color: #ffffff;
+  }
+  @each $gap in $gaps {
+    &.pt-#{$gap} {
+      padding-top: #{$gap}px;
+    }
+    &.pb-#{$gap} {
+      padding-bottom: #{$gap}px;
+    }
+    &.mt-#{$gap} {
+      margin-top: #{$gap}px;
+    }
+    &.mb-#{$gap} {
+      margin-bottom: #{$gap}px;
+    }
+  }
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &-image {
+      @extend .content-box__background;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      &.parallax {
+        background-attachment: fixed;
+      }
+    }
+    &-overlay {
+      @extend .content-box__background;
+      background-color: #000000;
+      @each $overlay in $overlays {
+        &._#{$overlay} {
+          opacity: calc($overlay / 100);
+        }
+      }
+    }
+  }
+  &__inner {
+    position: relative;
+    &.center {
+      width: 75rem;
+      margin: 0 auto;
+      @media (max-width: 80rem) {
+        width: 100%;
+        padding-right: 40px;
+        padding-left: 40px;
+      }
+      @media (max-width: 500px) {
+        padding-right: 20px;
+        padding-left: 20px;
+      }
+    }
+    &.alignCenter {
+      text-align: center;
+    }
+    &.alignRight {
+      text-align: right;
+    }
+  }
+}
