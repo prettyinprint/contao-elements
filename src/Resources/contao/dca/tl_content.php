@@ -1,6 +1,22 @@
 <?php
 
 $GLOBALS['TL_CSS'][] = 'bundles/contaoelements/css/content_box.css||static';
+$GLOBALS['TL_CSS'][] = 'bundles/contaoelements/css/grid.css||static';
+
+// row_stop
+
+$GLOBALS['TL_DCA']['tl_content']['palettes']['row_stop'] = '
+    {type_legend},type;
+    {invisible_legend:hide},invisible,start,stop;
+';
+
+// row_start
+
+$GLOBALS['TL_DCA']['tl_content']['palettes']['row_start'] = '
+    {type_legend},type;
+    {expert_legend:hide},cssID;
+    {invisible_legend:hide},invisible,start,stop;
+';
 
 // content_box_stop
 
