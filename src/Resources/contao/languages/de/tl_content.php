@@ -1,6 +1,5 @@
 <?php
 
-
 $GLOBALS['TL_LANG']['tl_content']['content_box_properties'] = 'ContentBox-Eigenschaften';
 
 $GLOBALS['TL_LANG']['tl_content']['content_box_properties_width'][0] = 'Breite';
