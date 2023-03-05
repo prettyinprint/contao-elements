@@ -1,0 +1,16 @@
+$gaps: 0, 5, 10, 20;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  @each $gap in $gaps {
+    &.cg-#{$gap} {
+      column-gap: #{$gap}px;
+    }
+    &.rg-#{$gap} {
+      row-gap: #{$gap}px;
+    }
+  }
+  &__item {
+  }
+}

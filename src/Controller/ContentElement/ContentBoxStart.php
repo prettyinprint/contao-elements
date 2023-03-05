@@ -17,15 +17,6 @@ class ContentBoxStart extends AbstractContentElementController
 {
   protected function getResponse(Template $template, ContentModel $model, Request $request): Response
   {
-
-    dump($model);
-
-    // $template->cssID = StringUtil::deserialize($model->cssID)[0];
-    // $template->class = StringUtil::deserialize($model->cssID)[1];
-    $template->cssID = "";
-    $template->class = "";
-
-
     $template->width = $model->content_box_properties_width;
     $template->paddingTop = $model->content_box_properties_pt;
     $template->paddingBottom = $model->content_box_properties_pb;

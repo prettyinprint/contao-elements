@@ -1,4 +1,4 @@
-<section {{cssID ? 'id="' ~ cssID ~ '"'}} style="--bc:#{{backgroundColorCustom ?: backgroundColor}};" class="content-box mt-{{marginTop}} mb-{{marginBottom}} pt-{{paddingTop}} pb-{{paddingBottom}}{{contentColorInverted ? ' contrast'}}{{class ? ' ' ~ class}}">
+<section {{cssID}} style="--bc:#{{backgroundColorCustom ?: backgroundColor}};" class="content-box mt-{{marginTop}} mb-{{marginBottom}} pt-{{paddingTop}} pb-{{paddingBottom}}{{contentColorInverted ? ' contrast'}}{{class ? ' ' ~ class}}">
   {% if hasBackgroundImage %}
     <div title="{{backgroundImage['title']}}" class="content-box__background-image{{backgroundParallax ? ' parallax'}}" style="background-image:url({{backgroundImage['path']}});">
     {% if backgroundOverlay %}
