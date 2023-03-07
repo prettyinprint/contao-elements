@@ -1,0 +1,10 @@
+{
+  "main.js": "/public/js/main.js",
+  "exampleController.js": "/public/js/exampleController.js",
+  "grid.css": "/public/css/grid.css",
+  "grid.js": "/public/js/grid.js",
+  "contentBox.css": "/public/css/contentBox.css",
+  "contentBox.js": "/public/js/contentBox.js",
+  "stimulus.js": "/public/js/stimulus.js",
+  "runtime.js": "/public/js/runtime.js"
+}
