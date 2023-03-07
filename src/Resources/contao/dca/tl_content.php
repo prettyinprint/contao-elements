@@ -1,8 +1,5 @@
 <?php
 
-$GLOBALS['TL_CSS'][] = 'bundles/contaoelements/css/content_box.css||static';
-$GLOBALS['TL_CSS'][] = 'bundles/contaoelements/css/grid.css||static';
-
 // row_stop
 
 $GLOBALS['TL_DCA']['tl_content']['palettes']['row_stop'] = '
