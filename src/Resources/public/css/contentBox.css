@@ -1,0 +1,111 @@
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/.pnpm/css-loader@6.7.3_webpack@5.75.0/node_modules/css-loader/dist/cjs.js!./node_modules/.pnpm/postcss-loader@7.0.2_6jdsrmfenkuhhw3gx4zvjlznce/node_modules/postcss-loader/dist/cjs.js!./node_modules/.pnpm/sass-loader@13.2.0_sass@1.58.3+webpack@5.75.0/node_modules/sass-loader/dist/cjs.js!./assets/scss/content_box.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.content-box {
+  background-color: var(--bc);
+  position: relative;
+}
+.content-box.pt-16 {
+  padding-top: 16px;
+}
+.content-box.pb-16 {
+  padding-bottom: 16px;
+}
+.content-box.mt-16 {
+  margin-top: 16px;
+}
+.content-box.mb-16 {
+  margin-bottom: 16px;
+}
+.content-box.pt-32 {
+  padding-top: 32px;
+}
+.content-box.pb-32 {
+  padding-bottom: 32px;
+}
+.content-box.mt-32 {
+  margin-top: 32px;
+}
+.content-box.mb-32 {
+  margin-bottom: 32px;
+}
+.content-box.pt-48 {
+  padding-top: 48px;
+}
+.content-box.pb-48 {
+  padding-bottom: 48px;
+}
+.content-box.mt-48 {
+  margin-top: 48px;
+}
+.content-box.mb-48 {
+  margin-bottom: 48px;
+}
+.content-box.pt-64 {
+  padding-top: 64px;
+}
+.content-box.pb-64 {
+  padding-bottom: 64px;
+}
+.content-box.mt-64 {
+  margin-top: 64px;
+}
+.content-box.mb-64 {
+  margin-bottom: 64px;
+}
+.content-box__background, .content-box__background-overlay, .content-box__background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.content-box__background-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.content-box__background-image.parallax {
+  background-attachment: fixed;
+}
+.content-box__background-overlay {
+  background-color: #000000;
+}
+.content-box__background-overlay.overlay-40 {
+  opacity: 0.4;
+}
+.content-box__background-overlay.overlay-60 {
+  opacity: 0.6;
+}
+.content-box__background-overlay.overlay-80 {
+  opacity: 0.8;
+}
+.content-box__inner {
+  position: relative;
+}
+.content-box__inner.contrast {
+  color: #ffffff;
+}
+.content-box__inner.centered {
+  width: 75rem;
+  margin: 0 auto;
+}
+@media (max-width: 80rem) {
+  .content-box__inner.centered {
+    width: 100%;
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .content-box__inner.centered {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+.content-box__inner.center {
+  text-align: center;
+}
+.content-box__inner.right {
+  text-align: right;
+}

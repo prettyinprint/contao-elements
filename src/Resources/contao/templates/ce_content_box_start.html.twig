@@ -17,6 +17,7 @@
 {% set backgroundOverlayAttributes = attrs(text_attributes|default)
     .addClass(["content-box__background-overlay", backgroundOverlay])
 %}
+
 <section{{sectionAttributes}}>
   {% if hasBackgroundImage %}
     <div{{backgroundImageAttributes}}>
@@ -26,4 +27,7 @@
     </div>
   {% endif %}
   <div{{innerAttributes}}>
+
+
  
+<div data-controller="example"></div>
