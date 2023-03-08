@@ -60,3 +60,5 @@ $GLOBALS['TL_LANG']['tl_content']['content_box_content'] = 'ContentBox - Inhalt'
 
 $GLOBALS['TL_LANG']['tl_content']['content_box_content_color_inverted'][0] = 'Farbe Invertieren';
 $GLOBALS['TL_LANG']['tl_content']['content_box_content_color_inverted'][1] = 'Farbe des Box Inhalts Invertieren.';
+$GLOBALS['TL_LANG']['tl_content']['content_box_content_text_align'][0] = 'Text Ausrichtung';
+$GLOBALS['TL_LANG']['tl_content']['content_box_content_text_align'][1] = 'Ausrichtung des Texts.';
