@@ -1,0 +1,54 @@
+{
+  "extends": "stylelint-config-standard-scss",
+  "rules": {
+    "declaration-property-unit-allowed-list": {
+      "/^border/": ["px"],
+      "/^padding|^gap/": ["rem"]
+    },
+    "unit-allowed-list": ["%", "deg", "px", "rem", "ms", "fr"],
+    "indentation": 2,
+    "at-rule-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "string-quotes": "single",
+    "no-duplicate-selectors": true,
+    "selector-class-pattern": [
+      "^([_a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+      { "resolveNestedSelectors": true }
+    ],
+    "color-hex-case": "lower",
+    "color-hex-length": "long",
+    "color-named": "never",
+    "selector-no-qualifying-type": true,
+    "selector-combinator-space-after": "always",
+    "selector-attribute-quotes": "always",
+    "selector-attribute-operator-space-before": "never",
+    "selector-attribute-operator-space-after": "never",
+    "selector-attribute-brackets-space-inside": "never",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-no-important": true,
+    "declaration-colon-space-before": "never",
+    "declaration-colon-space-after": "always",
+    "number-leading-zero": "never",
+    "function-url-quotes": "always",
+    "font-weight-notation": "numeric",
+    "font-family-name-quotes": "always-where-recommended",
+    "comment-whitespace-inside": "always",
+    "comment-empty-line-before": "never",
+    "declaration-empty-line-before": "never",
+    "at-rule-empty-line-before": [
+      "always",
+      { "except": ["after-same-name", "inside-block"] }
+    ],
+    "rule-empty-line-before": [
+      "always",
+      { "except": ["after-rule", "inside-block"] }
+    ],
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-pseudo-class-parentheses-space-inside": "never",
+    "media-feature-range-operator-space-before": "never",
+    "media-feature-range-operator-space-after": "never",
+    "media-feature-parentheses-space-inside": "never",
+    "media-feature-colon-space-before": "never",
+    "media-feature-colon-space-after": "always"
+  }
+}
