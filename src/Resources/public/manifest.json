@@ -1,6 +1,6 @@
 {
-  "main.js": "/public/js/main.js",
-  "exampleController.js": "/public/js/exampleController.js",
+  "accordion.css": "/public/css/accordion.css",
+  "accordion.js": "/public/js/accordion.js",
   "grid.css": "/public/css/grid.css",
   "grid.js": "/public/js/grid.js",
   "contentBox.css": "/public/css/contentBox.css",
