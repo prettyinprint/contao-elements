@@ -47,7 +47,7 @@ class EventListener {
   }
 }
 function extendEvent(event) {
-  if ("immediatePropagationStopped" in event) {
+  if ('immediatePropagationStopped' in event) {
     return event;
   } else {
     const { stopImmediatePropagation } = event;
@@ -155,9 +155,9 @@ class Dispatcher {
     Object.keys(eventOptions)
       .sort()
       .forEach((key) => {
-        parts.push(`${eventOptions[key] ? "" : "!"}${key}`);
+        parts.push(`${eventOptions[key] ? '' : '!'}${key}`);
       });
-    return parts.join(":");
+    return parts.join(':');
   }
 }
 
@@ -185,9 +185,9 @@ function parseActionDescriptorString(descriptorString) {
   const matches = source.match(descriptorPattern) || [];
   let eventName = matches[1];
   let keyFilter = matches[2];
-  if (keyFilter && !["keydown", "keyup", "keypress"].includes(eventName)) {
+  if (keyFilter && !['keydown', 'keyup', 'keypress'].includes(eventName)) {
     eventName += `.${keyFilter}`;
-    keyFilter = "";
+    keyFilter = '';
   }
   return {
     eventTarget: parseEventTarget(matches[3]),
@@ -199,26 +199,26 @@ function parseActionDescriptorString(descriptorString) {
   };
 }
 function parseEventTarget(eventTargetName) {
-  if (eventTargetName == "window") {
+  if (eventTargetName == 'window') {
     return window;
-  } else if (eventTargetName == "document") {
+  } else if (eventTargetName == 'document') {
     return document;
   }
 }
 function parseEventOptions(eventOptions) {
-  return eventOptions.split(":").reduce(
+  return eventOptions.split(':').reduce(
     (options, token) =>
       Object.assign(options, {
-        [token.replace(/^!/, "")]: !/^!/.test(token),
+        [token.replace(/^!/, '')]: !/^!/.test(token),
       }),
     {}
   );
 }
 function stringifyEventTarget(eventTarget) {
   if (eventTarget == window) {
-    return "window";
+    return 'window';
   } else if (eventTarget == document) {
-    return "document";
+    return 'document';
   }
 }
 
@@ -226,7 +226,7 @@ function camelize(value) {
   return value.replace(/(?:[_-])([a-z0-9])/g, (_, char) => char.toUpperCase());
 }
 function namespaceCamelize(value) {
-  return camelize(value.replace(/--/g, "-").replace(/__/g, "_"));
+  return camelize(value.replace(/--/g, '-').replace(/__/g, '_'));
 }
 function capitalize(value) {
   return value.charAt(0).toUpperCase() + value.slice(1);
@@ -246,11 +246,11 @@ class Action {
     this.eventName =
       descriptor.eventName ||
       getDefaultEventNameForElement(element) ||
-      error("missing event name");
+      error('missing event name');
     this.eventOptions = descriptor.eventOptions || {};
-    this.identifier = descriptor.identifier || error("missing identifier");
-    this.methodName = descriptor.methodName || error("missing method name");
-    this.keyFilter = descriptor.keyFilter || "";
+    this.identifier = descriptor.identifier || error('missing identifier');
+    this.methodName = descriptor.methodName || error('missing method name');
+    this.keyFilter = descriptor.keyFilter || '';
     this.schema = schema;
   }
   static forToken(token, schema) {
@@ -262,16 +262,16 @@ class Action {
     );
   }
   toString() {
-    const eventFilter = this.keyFilter ? `.${this.keyFilter}` : "";
-    const eventTarget = this.eventTargetName ? `@${this.eventTargetName}` : "";
+    const eventFilter = this.keyFilter ? `.${this.keyFilter}` : '';
+    const eventTarget = this.eventTargetName ? `@${this.eventTargetName}` : '';
     return `${this.eventName}${eventFilter}${eventTarget}->${this.identifier}#${this.methodName}`;
   }
   isFilterTarget(event) {
     if (!this.keyFilter) {
       return false;
     }
-    const filteres = this.keyFilter.split("+");
-    const modifiers = ["meta", "ctrl", "alt", "shift"];
+    const filteres = this.keyFilter.split('+');
+    const modifiers = ['meta', 'ctrl', 'alt', 'shift'];
     const [meta, ctrl, alt, shift] = modifiers.map((modifier) =>
       filteres.includes(modifier)
     );
@@ -300,7 +300,7 @@ class Action {
   }
   get params() {
     const params = {};
-    const pattern = new RegExp(`^data-${this.identifier}-(.+)-param$`, "i");
+    const pattern = new RegExp(`^data-${this.identifier}-(.+)-param$`, 'i');
     for (const { name, value } of Array.from(this.element.attributes)) {
       const match = name.match(pattern);
       const key = match && match[1];
@@ -318,13 +318,13 @@ class Action {
   }
 }
 const defaultEventNames = {
-  a: () => "click",
-  button: () => "click",
-  form: () => "submit",
-  details: () => "toggle",
-  input: (e) => (e.getAttribute("type") == "submit" ? "click" : "input"),
-  select: () => "change",
-  textarea: () => "input",
+  a: () => 'click',
+  button: () => 'click',
+  form: () => 'submit',
+  details: () => 'toggle',
+  input: (e) => (e.getAttribute('type') == 'submit' ? 'click' : 'input'),
+  select: () => 'change',
+  textarea: () => 'input',
 };
 function getDefaultEventNameForElement(element) {
   const tagName = element.tagName.toLowerCase();
@@ -370,7 +370,7 @@ class Binding {
   }
   get method() {
     const method = this.controller[this.methodName];
-    if (typeof method == "function") {
+    if (typeof method == 'function') {
       return method;
     }
     throw new Error(
@@ -504,9 +504,9 @@ class ElementObserver {
     }
   }
   processMutation(mutation) {
-    if (mutation.type == "attributes") {
+    if (mutation.type == 'attributes') {
       this.processAttributeChange(mutation.target, mutation.attributeName);
-    } else if (mutation.type == "childList") {
+    } else if (mutation.type == 'childList') {
       this.processRemovedNodes(mutation.removedNodes);
       this.processAddedNodes(mutation.addedNodes);
     }
@@ -965,7 +965,7 @@ class TokenListObserver {
   }
   readTokensForElement(element) {
     const attributeName = this.attributeName;
-    const tokenString = element.getAttribute(attributeName) || "";
+    const tokenString = element.getAttribute(attributeName) || '';
     return parseTokenString(tokenString, element, attributeName);
   }
 }
@@ -1196,7 +1196,7 @@ class ValueObserver {
   invokeChangedCallback(name, rawValue, rawOldValue) {
     const changedMethodName = `${name}Changed`;
     const changedMethod = this.receiver[changedMethodName];
-    if (typeof changedMethod == "function") {
+    if (typeof changedMethod == 'function') {
       const descriptor = this.valueDescriptorNameMap[name];
       try {
         const value = descriptor.reader(rawValue);
@@ -1434,7 +1434,7 @@ class OutletObserver {
     const dependencies = new Multimap();
     this.router.modules.forEach((module) => {
       const constructor = module.definition.controllerConstructor;
-      const outlets = readInheritableStaticArrayValues(constructor, "outlets");
+      const outlets = readInheritableStaticArrayValues(constructor, 'outlets');
       outlets.forEach((outlet) => dependencies.add(outlet, module.identifier));
     });
     return dependencies;
@@ -1498,9 +1498,9 @@ class Context {
     this.outletObserver = new OutletObserver(this, this);
     try {
       this.controller.initialize();
-      this.logDebugActivity("initialize");
+      this.logDebugActivity('initialize');
     } catch (error) {
-      this.handleError(error, "initializing controller");
+      this.handleError(error, 'initializing controller');
     }
   }
   connect() {
@@ -1510,9 +1510,9 @@ class Context {
     this.outletObserver.start();
     try {
       this.controller.connect();
-      this.logDebugActivity("connect");
+      this.logDebugActivity('connect');
     } catch (error) {
-      this.handleError(error, "connecting controller");
+      this.handleError(error, 'connecting controller');
     }
   }
   refresh() {
@@ -1521,9 +1521,9 @@ class Context {
   disconnect() {
     try {
       this.controller.disconnect();
-      this.logDebugActivity("disconnect");
+      this.logDebugActivity('disconnect');
     } catch (error) {
-      this.handleError(error, "disconnecting controller");
+      this.handleError(error, 'disconnecting controller');
     }
     this.outletObserver.stop();
     this.targetObserver.stop();
@@ -1575,7 +1575,7 @@ class Context {
   }
   invokeControllerMethod(methodName, ...args) {
     const controller = this.controller;
-    if (typeof controller[methodName] == "function") {
+    if (typeof controller[methodName] == 'function') {
       controller[methodName](...args);
     }
   }
@@ -1594,7 +1594,7 @@ function shadow(constructor, properties) {
   return shadowConstructor;
 }
 function getBlessedProperties(constructor) {
-  const blessings = readInheritableStaticArrayValues(constructor, "blessings");
+  const blessings = readInheritableStaticArrayValues(constructor, 'blessings');
   return blessings.reduce((blessedProperties, blessing) => {
     const properties = blessing(constructor);
     for (const key in properties) {
@@ -1615,7 +1615,7 @@ function getShadowProperties(prototype, properties) {
 }
 function getShadowedDescriptor(prototype, properties, key) {
   const shadowingDescriptor = Object.getOwnPropertyDescriptor(prototype, key);
-  const shadowedByValue = shadowingDescriptor && "value" in shadowingDescriptor;
+  const shadowedByValue = shadowingDescriptor && 'value' in shadowingDescriptor;
   if (!shadowedByValue) {
     const descriptor = Object.getOwnPropertyDescriptor(properties, key).value;
     if (shadowingDescriptor) {
@@ -1626,7 +1626,7 @@ function getShadowedDescriptor(prototype, properties, key) {
   }
 }
 const getOwnKeys = (() => {
-  if (typeof Object.getOwnPropertySymbols == "function") {
+  if (typeof Object.getOwnPropertySymbols == 'function') {
     return (object) => [
       ...Object.getOwnPropertyNames(object),
       ...Object.getOwnPropertySymbols(object),
@@ -1718,7 +1718,7 @@ class ClassMap {
     return this.getAll(name)[0];
   }
   getAll(name) {
-    const tokenString = this.data.get(this.getDataKey(name)) || "";
+    const tokenString = this.data.get(this.getDataKey(name)) || '';
     return tokenize(tokenString);
   }
   getAttributeName(name) {
@@ -1933,10 +1933,10 @@ class OutletSet {
   }
   matchesElement(element, selector, outletName) {
     const controllerAttribute =
-      element.getAttribute(this.scope.schema.controllerAttribute) || "";
+      element.getAttribute(this.scope.schema.controllerAttribute) || '';
     return (
       element.matches(selector) &&
-      controllerAttribute.split(" ").includes(outletName)
+      controllerAttribute.split(' ').includes(outletName)
     );
   }
 }
@@ -2139,31 +2139,31 @@ class Router {
 }
 
 const defaultSchema = {
-  controllerAttribute: "data-controller",
-  actionAttribute: "data-action",
-  targetAttribute: "data-target",
+  controllerAttribute: 'data-controller',
+  actionAttribute: 'data-action',
+  targetAttribute: 'data-target',
   targetAttributeForScope: (identifier) => `data-${identifier}-target`,
   outletAttributeForScope: (identifier, outlet) =>
     `data-${identifier}-${outlet}-outlet`,
   keyMappings: Object.assign(
     Object.assign(
       {
-        enter: "Enter",
-        tab: "Tab",
-        esc: "Escape",
-        space: " ",
-        up: "ArrowUp",
-        down: "ArrowDown",
-        left: "ArrowLeft",
-        right: "ArrowRight",
-        home: "Home",
-        end: "End",
+        enter: 'Enter',
+        tab: 'Tab',
+        esc: 'Escape',
+        space: ' ',
+        up: 'ArrowUp',
+        down: 'ArrowDown',
+        left: 'ArrowLeft',
+        right: 'ArrowRight',
+        home: 'Home',
+        end: 'End',
       },
       objectFromEntries(
-        "abcdefghijklmnopqrstuvwxyz".split("").map((c) => [c, c])
+        'abcdefghijklmnopqrstuvwxyz'.split('').map((c) => [c, c])
       )
     ),
-    objectFromEntries("0123456789".split("").map((n) => [n, n]))
+    objectFromEntries('0123456789'.split('').map((n) => [n, n]))
   ),
 };
 function objectFromEntries(array) {
@@ -2198,16 +2198,16 @@ class Application {
   }
   async start() {
     await domReady();
-    this.logDebugActivity("application", "starting");
+    this.logDebugActivity('application', 'starting');
     this.dispatcher.start();
     this.router.start();
-    this.logDebugActivity("application", "start");
+    this.logDebugActivity('application', 'start');
   }
   stop() {
-    this.logDebugActivity("application", "stopping");
+    this.logDebugActivity('application', 'stopping');
     this.dispatcher.stop();
     this.router.stop();
-    this.logDebugActivity("application", "stop");
+    this.logDebugActivity('application', 'stop');
   }
   register(identifier, controllerConstructor) {
     this.load({ identifier, controllerConstructor });
@@ -2244,19 +2244,19 @@ class Application {
     this.logger.error(`%s\n\n%o\n\n%o`, message, error, detail);
     (_a = window.onerror) === null || _a === void 0
       ? void 0
-      : _a.call(window, message, "", 0, 0, error);
+      : _a.call(window, message, '', 0, 0, error);
   }
   logFormattedMessage(identifier, functionName, detail = {}) {
     detail = Object.assign({ application: this }, detail);
     this.logger.groupCollapsed(`${identifier} #${functionName}`);
-    this.logger.log("details:", Object.assign({}, detail));
+    this.logger.log('details:', Object.assign({}, detail));
     this.logger.groupEnd();
   }
 }
 function domReady() {
   return new Promise((resolve) => {
-    if (document.readyState == "loading") {
-      document.addEventListener("DOMContentLoaded", () => resolve());
+    if (document.readyState == 'loading') {
+      document.addEventListener('DOMContentLoaded', () => resolve());
     } else {
       resolve();
     }
@@ -2264,7 +2264,7 @@ function domReady() {
 }
 
 function ClassPropertiesBlessing(constructor) {
-  const classes = readInheritableStaticArrayValues(constructor, "classes");
+  const classes = readInheritableStaticArrayValues(constructor, 'classes');
   return classes.reduce((properties, classDefinition) => {
     return Object.assign(
       properties,
@@ -2299,7 +2299,7 @@ function propertiesForClassDefinition(key) {
 }
 
 function OutletPropertiesBlessing(constructor) {
-  const outlets = readInheritableStaticArrayValues(constructor, "outlets");
+  const outlets = readInheritableStaticArrayValues(constructor, 'outlets');
   return outlets.reduce((properties, outletDefinition) => {
     return Object.assign(
       properties,
@@ -2380,7 +2380,7 @@ function propertiesForOutletDefinition(name) {
 }
 
 function TargetPropertiesBlessing(constructor) {
-  const targets = readInheritableStaticArrayValues(constructor, "targets");
+  const targets = readInheritableStaticArrayValues(constructor, 'targets');
   return targets.reduce((properties, targetDefinition) => {
     return Object.assign(
       properties,
@@ -2418,7 +2418,7 @@ function propertiesForTargetDefinition(name) {
 function ValuePropertiesBlessing(constructor) {
   const valueDefinitionPairs = readInheritableStaticObjectPairs(
     constructor,
-    "values"
+    'values'
   );
   const propertyDescriptorMap = {
     valueDescriptorMap: {
@@ -2481,29 +2481,29 @@ function parseValueDefinitionPair([token, typeDefinition], controller) {
 function parseValueTypeConstant(constant) {
   switch (constant) {
     case Array:
-      return "array";
+      return 'array';
     case Boolean:
-      return "boolean";
+      return 'boolean';
     case Number:
-      return "number";
+      return 'number';
     case Object:
-      return "object";
+      return 'object';
     case String:
-      return "string";
+      return 'string';
   }
 }
 function parseValueTypeDefault(defaultValue) {
   switch (typeof defaultValue) {
-    case "boolean":
-      return "boolean";
-    case "number":
-      return "number";
-    case "string":
-      return "string";
+    case 'boolean':
+      return 'boolean';
+    case 'number':
+      return 'number';
+    case 'string':
+      return 'string';
   }
-  if (Array.isArray(defaultValue)) return "array";
-  if (Object.prototype.toString.call(defaultValue) === "[object Object]")
-    return "object";
+  if (Array.isArray(defaultValue)) return 'array';
+  if (Object.prototype.toString.call(defaultValue) === '[object Object]')
+    return 'object';
 }
 function parseValueTypeObject(payload) {
   const typeFromObject = parseValueTypeConstant(payload.typeObject.type);
@@ -2569,7 +2569,7 @@ const defaultValuesByType = {
   get object() {
     return {};
   },
-  string: "",
+  string: '',
 };
 const readers = {
   array(value) {
@@ -2584,14 +2584,14 @@ const readers = {
     return array;
   },
   boolean(value) {
-    return !(value == "0" || String(value).toLowerCase() == "false");
+    return !(value == '0' || String(value).toLowerCase() == 'false');
   },
   number(value) {
     return Number(value);
   },
   object(value) {
     const object = JSON.parse(value);
-    if (object === null || typeof object != "object" || Array.isArray(object)) {
+    if (object === null || typeof object != 'object' || Array.isArray(object)) {
       throw new TypeError(
         `expected value of type "object" but instead got value "${value}" of type "${parseValueTypeDefault(
           object
@@ -2697,3 +2697,5 @@ export {
   fetch,
   prune,
 };
+
+window.application = Application.start();
