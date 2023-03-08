@@ -1,23 +1,94 @@
-@use "sass:math";
+@use 'sass:math';
 
-$maxColumns: 12;
+@function torem($value) {
+  $rem-value: math.div($value, 16) + rem;
+  @return $rem-value;
+}
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  > div {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    background-color: red;
-    border: 1px solid blue;
-  }
-  @for $i from 1 through 12 {
-    > .col-#{$i} {
-      flex: 0 0 math.div(100%, math.div(12, $i));
-      max-width: math.div(100%, math.div(12, $i));
+$grid-gaps: 2, 4, 8;
+$breakpoints: (
+  'sm': 640,
+  'md': 768,
+  'lg': 1024,
+  'xl': 1280,
+);
+
+.grid {
+  display: grid;
+  @for $i from 2 through 12 {
+    &.cols-#{$i} {
+      grid-template-columns: repeat($i, minmax(0, 1fr));
     }
-    > .offset-#{$i} {
-      margin-left: math.div(100%, math.div(12, $i));
+  }
+  @each $grid-gap in $grid-gaps {
+    &.gap-y-#{$grid-gap} {
+      row-gap: torem($grid-gap);
+    }
+    &.gap-x-#{$grid-gap} {
+      column-gap: torem($grid-gap);
+    }
+  }
+  > .col {
+    display: flex;
+    @for $i from 1 through 12 {
+      &.col-start-#{$i} {
+        grid-column-start: $i;
+      }
+    }
+    @for $i from 1 through 13 {
+      &.col-end-#{$i} {
+        grid-column-end: $i;
+      }
+    }
+    @each $name, $value in $breakpoints {
+      @media (min-width: #{$value}px) {
+        @for $i from 1 through 13 {
+          &.col-end-#{$name}-#{$i} {
+            grid-column-end: $i;
+          }
+        }
+        @for $i from 1 through 12 {
+          &.col-start-#{$name}-#{$i} {
+            grid-column-start: $i;
+          }
+        }
+        &.align-center-#{$name} {
+          align-items: center;
+        }
+        &.align-end-#{$name} {
+          align-items: end;
+        }
+        &.justify-center-#{$name} {
+          justify-content: center;
+        }
+        &.justify-end-#{$name} {
+          justify-content: end;
+        }
+        &.text-center-#{$name} {
+          text-align: center;
+        }
+        &.text-right-#{$name} {
+          text-align: right;
+        }
+      }
+    }
+    &.align-center {
+      align-items: center;
+    }
+    &.align-end {
+      align-items: end;
+    }
+    &.justify-center {
+      justify-content: center;
+    }
+    &.justify-end {
+      justify-content: end;
+    }
+    &.text-center {
+      text-align: center;
+    }
+    &.text-right {
+      text-align: right;
     }
   }
 }

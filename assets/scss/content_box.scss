@@ -1,15 +1,28 @@
+@use 'sass:math';
+
 $gaps: 16, 32, 48, 64;
 $overlays: 40, 60, 80;
 
+@function torem($value) {
+  $rem-value: math.div($value, 16) + rem;
+  @return $rem-value;
+}
+%content-box-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .content-box {
   background-color: var(--bc);
   position: relative;
   @each $gap in $gaps {
     &.pt-#{$gap} {
-      padding-top: #{$gap}px;
+      padding-top: torem($gap);
     }
     &.pb-#{$gap} {
-      padding-bottom: #{$gap}px;
+      padding-bottom: torem($gap);
     }
     &.mt-#{$gap} {
       margin-top: #{$gap}px;
@@ -18,14 +31,9 @@ $overlays: 40, 60, 80;
       margin-bottom: #{$gap}px;
     }
   }
-  &__background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  &-background {
     &-image {
-      @extend .content-box__background;
+      @extend %content-box-background;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -34,7 +42,7 @@ $overlays: 40, 60, 80;
       }
     }
     &-overlay {
-      @extend .content-box__background;
+      @extend %content-box-background;
       background-color: #000000;
       @each $overlay in $overlays {
         &.overlay-#{$overlay} {
@@ -43,7 +51,7 @@ $overlays: 40, 60, 80;
       }
     }
   }
-  &__inner {
+  &-inner {
     position: relative;
     &.contrast {
       color: #ffffff;
@@ -53,12 +61,12 @@ $overlays: 40, 60, 80;
       margin: 0 auto;
       @media (max-width: 80rem) {
         width: 100%;
-        padding-right: 40px;
-        padding-left: 40px;
+        padding-right: torem(40);
+        padding-left: torem(40);
       }
       @media (max-width: 500px) {
-        padding-right: 20px;
-        padding-left: 20px;
+        padding-right: torem(20);
+        padding-left: torem(20);
       }
     }
     &.center {

@@ -1,1 +1,1 @@
-import "./scss/grid.scss";
+import './scss/grid.scss';

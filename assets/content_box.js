@@ -1,1 +1,1 @@
-import "./scss/content_box.scss";
+import './scss/content_box.scss';
