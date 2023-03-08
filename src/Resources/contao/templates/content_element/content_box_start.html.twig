@@ -4,18 +4,18 @@
     .set('style', '--bc:#' ~ backgroundColor, backgroundColor)
 %}
 {% set innerAttributes = attrs(text_attributes|default)
-    .addClass(["content-box__inner", width])
+    .addClass(["content-box-inner", width])
     .addClass("contrast", colorInverted)
     .addClass(textAlign)
 %}
 {% set backgroundImageAttributes = attrs(text_attributes|default)
-    .addClass("content-box__background-image")
+    .addClass("content-box-background-image")
     .addClass('parallax', backgroundParallax)
     .setIfExists('title', backgroundImageTitle)
     .set('style', 'background-image:url(' ~ backgroundImagePath ~ ')', backgroundImagePath)
 %}
 {% set backgroundOverlayAttributes = attrs(text_attributes|default)
-    .addClass(["content-box__background-overlay", backgroundOverlay])
+    .addClass(["content-box-background-overlay", backgroundOverlay])
 %}
 
 <section{{sectionAttributes}}>
@@ -27,7 +27,3 @@
     </div>
   {% endif %}
   <div{{innerAttributes}}>
-
-
- 
-<div data-controller="example"></div>
