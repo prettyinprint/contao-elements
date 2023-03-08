@@ -1,0 +1,13 @@
+.accordion {
+  &-content {
+    max-height: 0;
+    will-change: max-height;
+    transition: max-height 25ms ease-out;
+    opacity: 0;
+  }
+  &.active {
+    .accordion-content {
+      opacity: 1;
+    }
+  }
+}
