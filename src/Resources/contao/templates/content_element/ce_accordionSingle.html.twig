@@ -1,0 +1,36 @@
+{% import '@ContaoCore/Image/Studio/_macros.html.twig' as studio %}
+
+{% set wrapperattributes = attrs(text_attributes|default)
+    .setIfExists("id", cssID)
+    .addClass(["accordion", class|replace({"ce_accordionSingle" : ""})]) 
+    .set('style', style, style)
+    .set('data-controller', 'accordion')
+    .set('data-accordion-accordion-outlet', '.accordion')
+%}
+{% set togglerattributes = attrs(text_attributes|default)
+    .setIfExists("id", cssID)
+    .addClass('accordion-toggle')
+    .set('style', headlineStyle, headlineStyle)
+    .set('data-action', 'click->accordion#activateAccordion')
+%}
+{% set contentatributes = attrs(text_attributes|default)
+    .addClass('accordion-content')
+    .set('data-accordion-target', 'content')
+%}
+
+<div{{wrapperattributes}}>
+  <div{{togglerattributes}}>{{headline}}</div>
+  <div{{contentatributes}}>
+    <div>
+      {% if not addBefore %}
+        {{ text|insert_tag|raw }}
+      {% endif %}
+      {% if addImage %}
+        {{ studio.figure(figure) }}
+      {% endif %}
+      {% if addBefore %}
+        {{ text|insert_tag|raw }}
+      {% endif %}
+    </div>
+  </div>
+</div>
