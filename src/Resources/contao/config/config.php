@@ -7,5 +7,7 @@ $GLOBALS['TL_HOOKS']['generatePage'][] = ['PiP\\ContaoElements\\ContaoElements',
 
 $GLOBALS['TL_WRAPPERS']['start'][] = 'content_box_start';
 $GLOBALS['TL_WRAPPERS']['stop'][] = 'content_box_stop';
-$GLOBALS['TL_WRAPPERS']['start'][] = 'row_start';
-$GLOBALS['TL_WRAPPERS']['stop'][] = 'row_stop';
+$GLOBALS['TL_WRAPPERS']['start'][] = 'grid_start';
+$GLOBALS['TL_WRAPPERS']['stop'][] = 'grid_stop';
+$GLOBALS['TL_WRAPPERS']['start'][] = 'column_start';
+$GLOBALS['TL_WRAPPERS']['stop'][] = 'column_stop';

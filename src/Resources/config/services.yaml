@@ -4,5 +4,7 @@ services:
 
   PiP\ContaoElements\Controller\ContentElement\ContentBoxStart: ~
   PiP\ContaoElements\Controller\ContentElement\ContentBoxStop: ~
-  PiP\ContaoElements\Controller\ContentElement\RowStart: ~
-  PiP\ContaoElements\Controller\ContentElement\RowStop: ~
+  PiP\ContaoElements\Controller\ContentElement\GridStart: ~
+  PiP\ContaoElements\Controller\ContentElement\GridStop: ~
+  PiP\ContaoElements\Controller\ContentElement\ColumnStart: ~
+  PiP\ContaoElements\Controller\ContentElement\ColumnStop: ~
