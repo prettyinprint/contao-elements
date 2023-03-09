@@ -1,9 +1,7 @@
 {% set attributes = attrs(text_attributes|default)
     .setIfExists("id", cssID)
-    .addClass(["grid", class])
+    .addClass(["grid", class, apRow, gapColumn])
     .addClass('cols-' ~ columns, columns)
-    .addClass('gap-x-' ~ gapColumn, gapColumn)
-    .addClass('gap-y-' ~ gapRow, gapRow)
 %}
 <div{{attributes}}>
 
