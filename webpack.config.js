@@ -2,8 +2,9 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const isDev = true;
+const isDev = false;
 
 module.exports = {
   entry: {
@@ -18,7 +19,7 @@ module.exports = {
   mode: isDev ? 'development' : 'production',
   output: {
     path: path.resolve(__dirname, 'src/Resources/public'),
-    filename: isDev ? 'js/[name].js' : 'js/[name].[contenthash].js',
+    filename: 'js/[name].js',
     publicPath: '/public/',
   },
   module: {
@@ -42,7 +43,7 @@ module.exports = {
   plugins: [
     new WebpackManifestPlugin({}),
     new MiniCssExtractPlugin({
-      filename: isDev ? 'css/[name].css' : 'css/[name].[contenthash].css',
+      filename: 'css/[name].css',
     }),
   ],
   optimization: {
