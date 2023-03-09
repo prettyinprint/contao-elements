@@ -262,22 +262,22 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['column_content_properties_align_item
     'inputType' => 'select',
     'options' => [
         'align-center' => 'center',
-        'align-end' => 'bottom',
+        'align-end' => 'right',
         'sm' => [
             'align-center-sm' => 'sm - center',
-            'align-end-sm' => 'sm - bottom',
+            'align-end-sm' => 'sm - right',
         ],
         'md' => [
             'align-center-md' => 'md - center',
-            'align-end-md' => 'md - bottom',
+            'align-end-md' => 'md - right',
         ],
         'lg' => [
             'align-center-lg' => 'lg - center',
-            'align-end-lg' => 'lg - bottom',
+            'align-end-lg' => 'lg - right',
         ],
         'xl' => [
             'align-center-xl' => 'xl - center',
-            'align-end-xl' => 'xl - bottom',
+            'align-end-xl' => 'xl - right',
         ],
     ],
     'sql' => 'text NULL',
@@ -288,22 +288,22 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['column_content_properties_justify_co
     'inputType' => 'select',
     'options' => [
         'justify-center' => 'center',
-        'justify-end' => 'right',
+        'justify-end' => 'bottom',
         'sm' => [
             'justify-center-sm' => 'sm - center',
-            'justify-end-sm' => 'sm - right',
+            'justify-end-sm' => 'sm - bottom',
         ],
         'md' => [
             'justify-center-md' => 'md - center',
-            'justify-end-md' => 'md - right',
+            'justify-end-md' => 'md - bottom',
         ],
         'lg' => [
             'justify-center-lg' => 'lg - center',
-            'justify-end-lg' => 'lg - right',
+            'justify-end-lg' => 'lg - bottom',
         ],
         'xl' => [
             'justify-center-xl' => 'xl - center',
-            'justify-end-xl' => 'xl - right',
+            'justify-end-xl' => 'xl - bottom',
         ],
     ],
     'sql' => 'text NULL',
