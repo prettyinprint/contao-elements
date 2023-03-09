@@ -21,10 +21,10 @@ $GLOBALS['TL_LANG']['tl_content']['column_properties_col_end_breakpoints'][1] = 
 
 $GLOBALS['TL_LANG']['tl_content']['column_content_properties'] = 'Inhalts - Eigenschaften';
 
-$GLOBALS['TL_LANG']['tl_content']['column_content_properties_align_items'][0] = 'Vertikale Ausrichtung';
-$GLOBALS['TL_LANG']['tl_content']['column_content_properties_align_items'][1] = 'Vertikale Ausrichtung des Inhalts.';
-$GLOBALS['TL_LANG']['tl_content']['column_content_properties_justify_content'][0] = 'Horizontale Ausrichtung';
-$GLOBALS['TL_LANG']['tl_content']['column_content_properties_justify_content'][1] = 'Horizontale Ausrichtung des Inhalts.';
+$GLOBALS['TL_LANG']['tl_content']['column_content_properties_align_items'][0] = 'Horizontale Ausrichtung';
+$GLOBALS['TL_LANG']['tl_content']['column_content_properties_align_items'][1] = 'Horizontale Ausrichtung des Inhalts.';
+$GLOBALS['TL_LANG']['tl_content']['column_content_properties_justify_content'][0] = 'Vertikale Ausrichtung';
+$GLOBALS['TL_LANG']['tl_content']['column_content_properties_justify_content'][1] = 'Vertikale Ausrichtung des Inhalts.';
 $GLOBALS['TL_LANG']['tl_content']['column_content_properties_text_align'][0] = 'Text Ausrichtung';
 $GLOBALS['TL_LANG']['tl_content']['column_content_properties_text_align'][1] = 'Ausrichtung des Texts.';
 

@@ -30,6 +30,7 @@ $breakpoints: (
   }
   > .col {
     display: flex;
+    flex-direction: column;
     @for $i from 1 through 12 {
       &.col-start-#{$i} {
         grid-column-start: $i;
