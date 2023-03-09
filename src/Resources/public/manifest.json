@@ -1,11 +1,10 @@
 {
-  "accordion.css": "/public/css/accordionlol.css",
-  "accordion.js": "/public/js/accordionlol.js",
+  "accordion.css": "/public/css/accordion.css",
+  "accordion.js": "/public/js/accordion.js",
   "grid.css": "/public/css/grid.css",
   "grid.js": "/public/js/grid.js",
   "contentBox.css": "/public/css/contentBox.css",
   "contentBox.js": "/public/js/contentBox.js",
   "stimulus.js": "/public/js/stimulus.js",
-  "runtime.js": "/public/js/runtime.js",
-  "icons/icons.svg": "/public/icons/icons.svg"
+  "runtime.js": "/public/js/runtime.js"
 }
