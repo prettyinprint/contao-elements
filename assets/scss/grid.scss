@@ -5,7 +5,7 @@
   @return $rem-value;
 }
 
-$grid-gaps: 2, 4, 8;
+$grid-gaps: 8, 16, 32, 64;
 $breakpoints: (
   'sm': 640,
   'md': 768,
