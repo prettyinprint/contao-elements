@@ -50,10 +50,10 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['grid_properties_gap_row'] = [
     'inputType' => 'select',
     'options' => [
         '' => '0px',
-        'gap-x-8' => '8px',
-        'gap-x-16' => '16px',
-        'gap-x-32' => '32px',
-        'gap-x-64' => '64px',
+        'gap-y-8' => '8px',
+        'gap-y-16' => '16px',
+        'gap-y-32' => '32px',
+        'gap-y-64' => '64px',
     ],
     'sql' => [
         'type' => 'string',
